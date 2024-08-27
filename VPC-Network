@@ -14,3 +14,16 @@ gcloud compute networks subnets create aqua-subnet2 \
     --network=aqua-vpc \
     --region=us-central1 \
     --range=10.0.1.0/24
+
+
+#### Create VM ####
+gcloud compute instances create vm1 \
+    --zone=us-central1-a \
+    --machine-type=n1-standard-2 \
+    --subnet=aqua-subnet1 \
+    --network-tier=STANDARD \
+    --image-family=ubuntu-2204-lts \
+    --image-project=ubuntu-os-cloud \
+    --boot-disk-size=10GB \
+    --boot-disk-type=pd-standard \
+    --boot-disk-device-name=aqua-vm-disk
