@@ -1,0 +1,16 @@
+### Set project config set ####
+gcloud config set project aqua-tech-433808
+
+### Create VPC ###
+gcloud compute networks create aqua-vpc --subnet-mode=custom
+
+### Create Subnet ###
+gcloud compute networks subnets create aqua-subnet1 \
+    --network=aqua-vpc \
+    --region=us-central1 \
+    --range=10.0.0.0/24
+
+gcloud compute networks subnets create aqua-subnet2 \
+    --network=aqua-vpc \
+    --region=us-central1 \
+    --range=10.0.1.0/24
